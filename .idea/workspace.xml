@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="31a91ca3-c8ce-4ba9-b60f-a5a7ee5061f8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XfAQpmVfPV5MRXnBE3vP4HtMnO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ChatbotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="chatbot" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chatbot.ChatbotApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="31a91ca3-c8ce-4ba9-b60f-a5a7ee5061f8" name="Default Changelist" comment="" />
+      <created>1581426761429</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581426761429</updated>
+      <workItem from="1581426764708" duration="2160000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="179" y="199" key="#com.intellij.ide.util.MemberChooser" timestamp="1581427510809">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state x="179" y="199" key="#com.intellij.ide.util.MemberChooser/0.23.1680.970@0.23.1680.970" timestamp="1581427510809" />
+    <state x="454" y="221" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1581426862302">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="454" y="221" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1581426862302" />
+    <state x="428" y="267" key="IDE.errors.dialog" timestamp="1581426779850">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="428" y="267" key="IDE.errors.dialog/0.0.1680.1050@0.0.1680.1050" timestamp="1581426779850" />
+    <state x="217" y="229" key="new project wizard" timestamp="1581426845747">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="217" y="229" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1581426845747" />
+  </component>
+</project>
