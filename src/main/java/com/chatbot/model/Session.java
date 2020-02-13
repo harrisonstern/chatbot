@@ -11,16 +11,26 @@ public class Session {
     private String projectName;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String sessionID;
+
+    private Integer fallbackCount;
 
     @OneToOne(cascade = {CascadeType.ALL})
     private User user;
 
     public String getProjectName() {
         return projectName;
+    }
+
+    public Integer getFallbackCount() {
+        return fallbackCount;
+    }
+
+    public void setFallbackCount(Integer fallbackCount) {
+        this.fallbackCount = fallbackCount;
     }
 
     public void setProjectName(String projectName) {

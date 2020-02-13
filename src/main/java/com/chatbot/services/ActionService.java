@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
@@ -28,10 +29,12 @@ public class ActionService {
 
     private UserServiceImpl userService;
     private SessionServiceImpl sessionService;
+    private WeatherService weatherService;
 
-    public ActionService(UserServiceImpl userService, SessionServiceImpl sessionService) {
+    public ActionService(UserServiceImpl userService, SessionServiceImpl sessionService, WeatherService weatherService) {
         this.userService = userService;
         this.sessionService = sessionService;
+        this.weatherService = weatherService;
     }
 
     @Autowired
@@ -57,29 +60,84 @@ public class ActionService {
             session.setSessionID(idString);
             User user = new User();
             session.setUser(user);
+            session.setFallbackCount(0);
             user.setSession(session);
             sessionService.addSession(session);
         }
 
-        // Create the response
-        GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
-
-        // Switch for each intent to add additional functionality:
-        switch (request.getQueryResult().getIntent().getDisplayName()) {
-            case "service.request.roomService":
-
-                String[] suggestions = {"New Towels", "Clean Room", "Lost Key"};
-
-                String fulfillmentText = request.getQueryResult().getFulfillmentText();
-                fulfillmentText += createSuggestionsJSON(suggestions);
-                response.setFulfillmentText(fulfillmentText);
-        }
+        GoogleCloudDialogflowV2WebhookResponse response = getResponse(session,request);
 
         StringWriter stringWriter = new StringWriter();
         JsonGenerator jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
         jsonGenerator.serialize(response);
         jsonGenerator.flush();
         return stringWriter.toString();
+    }
+
+    private GoogleCloudDialogflowV2WebhookResponse getResponse(Session session, GoogleCloudDialogflowV2WebhookRequest request) throws IOException{
+
+        // Create the response
+        GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
+        String fulfillmentText;
+        // Switch for each intent to add additional functionality:
+
+        logger.info("Processing request with the following intent: {}", request.getQueryResult().getIntent().getDisplayName());
+        switch (request.getQueryResult().getIntent().getDisplayName()) {
+            case "service.request.roomService":
+
+                String[] suggestions = {"Can I get more towels", "Clean my room", "I need a new room key", "Pull my car around"};
+
+                fulfillmentText = request.getQueryResult().getFulfillmentText();
+                fulfillmentText += createSuggestionsJSON(suggestions);
+                response.setFulfillmentText(fulfillmentText);
+                break;
+
+            case "information.request.nearestAirport":
+
+                Point2D airportCoord = new Point2D.Double(55.630073, 12.652950);
+                Point2D coords[] = {airportCoord};
+                fulfillmentText = request.getQueryResult().getFulfillmentText();
+                fulfillmentText += createCoordinatesJSON(coords);
+                response.setFulfillmentText(fulfillmentText);
+                break;
+
+            case "sauna.hours - yes":
+
+                Point2D suanaCoord = new Point2D.Double(55.608201, 12.977496);
+                Point2D suanaCoords[] = {suanaCoord};
+                fulfillmentText = request.getQueryResult().getFulfillmentText();
+                fulfillmentText += createCoordinatesJSON(suanaCoords);
+                response.setFulfillmentText(fulfillmentText);
+                break;
+
+            case "information.request.turnOnTV":
+
+                fulfillmentText = request.getQueryResult().getFulfillmentText();
+                fulfillmentText += createVideoJSON("https://www.youtube.com/watch?v=CpIqkLEGKsk");
+                response.setFulfillmentText(fulfillmentText);
+                break;
+
+            case "Default Fallback Intent":
+                System.out.println(session.getFallbackCount());
+                int currentFallbackCount = session.getFallbackCount();
+                if (currentFallbackCount == 2){
+                    fulfillmentText = "Sorry I am having trouble understanding. Please go to reception for additional help.";
+                    response.setFulfillmentText(fulfillmentText);
+                }
+                else{
+                    session.setFallbackCount(session.getFallbackCount() + 1);
+                    sessionService.saveSession(session);
+                }
+                break;
+
+            case "information.request.weather":
+               System.out.println(weatherService.getForcast());
+               break;
+
+
+        }
+
+        return response;
     }
 
     private String createSuggestionsJSON(String[] suggestions) throws IOException {
@@ -94,6 +152,43 @@ public class ActionService {
 
         for (String suggestion : suggestions)
             generator.writeString(suggestion);
+
+        generator.writeEndArray();
+        generator.writeEndObject();
+        generator.close();
+
+        return stringWriter.toString();
+    }
+
+    private String createVideoJSON(String url) throws IOException{
+        JsonFactory factory = new JsonFactory();
+        StringWriter stringWriter = new StringWriter();
+        com.fasterxml.jackson.core.JsonGenerator generator = factory.createGenerator(stringWriter);
+
+        generator.writeStartObject();
+        generator.writeStringField("video",url);
+        generator.writeEndObject();
+        generator.close();
+
+        return stringWriter.toString();
+    }
+
+    private String createCoordinatesJSON(Point2D[] coords) throws IOException {
+
+        JsonFactory factory = new JsonFactory();
+        StringWriter stringWriter = new StringWriter();
+        com.fasterxml.jackson.core.JsonGenerator generator = factory.createGenerator(stringWriter);
+
+        generator.writeStartObject();
+        generator.writeFieldName("mapCoordinates");
+        generator.writeStartArray();
+
+        for (Point2D coord : coords) {
+            generator.writeStartObject();
+            generator.writeNumberField("lat",coord.getX());
+            generator.writeNumberField("lng",coord.getY());
+            generator.writeEndObject();
+        }
 
         generator.writeEndArray();
         generator.writeEndObject();
