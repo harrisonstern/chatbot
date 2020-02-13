@@ -16,8 +16,8 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public Session getSession(UUID id) {
-       return sessionRepository.findBySessionUUID(id).get();
+    public Session getSession(String id) {
+       return sessionRepository.findBySessionID(id).get();
     }
 
     @Override

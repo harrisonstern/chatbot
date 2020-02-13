@@ -1,68 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31a91ca3-c8ce-4ba9-b60f-a5a7ee5061f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__androidx_annotation_annotation_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_api_client_google_api_client_1_30_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_apis_google_api_services_dialogflow_v2_rev81_1_25_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_28_2_android.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_http_client_google_http_client_1_34_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_http_client_google_http_client_jackson2_1_34_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_1_30_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_context_1_22_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_opencensus_opencensus_api_0_24_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_opencensus_opencensus_contrib_http_util_0_24_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_0_9_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_3_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_5_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webflux_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_synchronoss_cloud_nio_multipart_parser_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_synchronoss_cloud_nio_stream_storage_1_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/H2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/controllers/ActionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/repositories/SessionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/ActionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/SessionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/SessionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/UserServiceImpl.java" afterDir="false" />
+    <list default="true" id="31a91ca3-c8ce-4ba9-b60f-a5a7ee5061f8" name="Default Changelist" comment="Created the services and rest controller. Added Google api support. Tinkered with persisting user info, but commented out the code (pretty messy attempt)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/ChatbotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/ChatbotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/model/BaseEntity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/model/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/model/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/repositories/SessionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/repositories/SessionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/services/ActionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/ActionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/services/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/SessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chatbot/services/SessionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chatbot/services/SessionServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,12 +85,24 @@
       <workItem from="1581509624897" duration="5227000" />
       <workItem from="1581515320650" duration="5112000" />
       <workItem from="1581521290737" duration="7779000" />
-      <workItem from="1581586780710" duration="2896000" />
+      <workItem from="1581586780710" duration="6388000" />
     </task>
+    <task id="LOCAL-00001" summary="Created the services and rest controller. Added Google api support. Tinkered with persisting user info, but commented out the code (pretty messy attempt)">
+      <created>1581590290031</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581590290031</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created the services and rest controller. Added Google api support. Tinkered with persisting user info, but commented out the code (pretty messy attempt)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created the services and rest controller. Added Google api support. Tinkered with persisting user info, but commented out the code (pretty messy attempt)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="179" y="191" key="#com.intellij.ide.util.MemberChooser" timestamp="1581583327578">
@@ -161,66 +118,70 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="120" y="260" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.970@0.23.1680.970" timestamp="1581500631979" />
-    <state width="1638" height="260" key="GridCell.Tab.0.bottom" timestamp="1581589597874">
+    <state x="190" y="127" key="CommitChangelistDialog2" timestamp="1581590367767">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597874" />
+    <state x="190" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1581590367767" />
+    <state width="1638" height="260" key="GridCell.Tab.0.bottom" timestamp="1581596944366">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944366" />
     <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.23.1680.967@0.23.1680.967" timestamp="1581517703999" />
-    <state width="1638" height="260" key="GridCell.Tab.0.center" timestamp="1581589597873">
+    <state width="1638" height="260" key="GridCell.Tab.0.center" timestamp="1581596944364">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597873" />
+    <state width="1638" height="260" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944364" />
     <state width="1638" height="260" key="GridCell.Tab.0.center/0.23.1680.967@0.23.1680.967" timestamp="1581517703998" />
-    <state width="1638" height="260" key="GridCell.Tab.0.left" timestamp="1581589597873">
+    <state width="1638" height="260" key="GridCell.Tab.0.left" timestamp="1581596944364">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597873" />
+    <state width="1638" height="260" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944364" />
     <state width="1638" height="260" key="GridCell.Tab.0.left/0.23.1680.967@0.23.1680.967" timestamp="1581517703997" />
-    <state width="1638" height="260" key="GridCell.Tab.0.right" timestamp="1581589597874">
+    <state width="1638" height="260" key="GridCell.Tab.0.right" timestamp="1581596944365">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597874" />
+    <state width="1638" height="260" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944365" />
     <state width="1638" height="260" key="GridCell.Tab.0.right/0.23.1680.967@0.23.1680.967" timestamp="1581517703999" />
-    <state width="1638" height="260" key="GridCell.Tab.1.bottom" timestamp="1581589597876">
+    <state width="1638" height="260" key="GridCell.Tab.1.bottom" timestamp="1581596944368">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597876" />
+    <state width="1638" height="260" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944368" />
     <state width="1638" height="260" key="GridCell.Tab.1.bottom/0.23.1680.967@0.23.1680.967" timestamp="1581517704002" />
-    <state width="1638" height="363" key="GridCell.Tab.1.bottom/0.23.1680.972@0.23.1680.972" timestamp="1581588501775" />
-    <state width="1638" height="260" key="GridCell.Tab.1.center" timestamp="1581589597875">
+    <state width="1638" height="363" key="GridCell.Tab.1.bottom/0.23.1680.972@0.23.1680.972" timestamp="1581595997412" />
+    <state width="1638" height="260" key="GridCell.Tab.1.center" timestamp="1581596944367">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597875" />
+    <state width="1638" height="260" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944367" />
     <state width="1638" height="260" key="GridCell.Tab.1.center/0.23.1680.967@0.23.1680.967" timestamp="1581517704001" />
-    <state width="1638" height="363" key="GridCell.Tab.1.center/0.23.1680.972@0.23.1680.972" timestamp="1581588501774" />
-    <state width="1638" height="260" key="GridCell.Tab.1.left" timestamp="1581589597874">
+    <state width="1638" height="363" key="GridCell.Tab.1.center/0.23.1680.972@0.23.1680.972" timestamp="1581595997412" />
+    <state width="1638" height="260" key="GridCell.Tab.1.left" timestamp="1581596944366">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597874" />
+    <state width="1638" height="260" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944366" />
     <state width="1638" height="260" key="GridCell.Tab.1.left/0.23.1680.967@0.23.1680.967" timestamp="1581517704000" />
-    <state width="1638" height="363" key="GridCell.Tab.1.left/0.23.1680.972@0.23.1680.972" timestamp="1581588501774" />
-    <state width="1638" height="260" key="GridCell.Tab.1.right" timestamp="1581589597875">
+    <state width="1638" height="363" key="GridCell.Tab.1.left/0.23.1680.972@0.23.1680.972" timestamp="1581595997411" />
+    <state width="1638" height="260" key="GridCell.Tab.1.right" timestamp="1581596944367">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="260" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581589597875" />
+    <state width="1638" height="260" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581596944367" />
     <state width="1638" height="260" key="GridCell.Tab.1.right/0.23.1680.967@0.23.1680.967" timestamp="1581517704001" />
-    <state width="1638" height="363" key="GridCell.Tab.1.right/0.23.1680.972@0.23.1680.972" timestamp="1581588501775" />
-    <state width="1638" height="363" key="GridCell.Tab.2.bottom" timestamp="1581588743770">
+    <state width="1638" height="363" key="GridCell.Tab.1.right/0.23.1680.972@0.23.1680.972" timestamp="1581595997412" />
+    <state width="1638" height="363" key="GridCell.Tab.2.bottom" timestamp="1581596835540">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581588743770" />
-    <state width="1638" height="363" key="GridCell.Tab.2.center" timestamp="1581588743769">
+    <state width="1638" height="363" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1581596835540" />
+    <state width="1638" height="363" key="GridCell.Tab.2.center" timestamp="1581596835538">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581588743769" />
-    <state width="1638" height="363" key="GridCell.Tab.2.left" timestamp="1581588743768">
+    <state width="1638" height="363" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1581596835538" />
+    <state width="1638" height="363" key="GridCell.Tab.2.left" timestamp="1581596835537">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581588743768" />
-    <state width="1638" height="363" key="GridCell.Tab.2.right" timestamp="1581588743770">
+    <state width="1638" height="363" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1581596835537" />
+    <state width="1638" height="363" key="GridCell.Tab.2.right" timestamp="1581596835539">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581588743770" />
+    <state width="1638" height="363" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1581596835539" />
     <state x="428" y="267" key="IDE.errors.dialog" timestamp="1581426779850">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -229,6 +190,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="378" y="187" key="Maven.ArtifactSearchDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1581514056748" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1581590337423">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1581590337423" />
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1581586882052">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

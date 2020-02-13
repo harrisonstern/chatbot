@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public interface SessionService {
 
-    Session getSession(UUID id);
+    Session getSession(String id);
 
     Session addSession(Session session);
 

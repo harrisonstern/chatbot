@@ -14,7 +14,7 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private UUID sessionUUID;
+    private String sessionID;
 
     @OneToOne(cascade = {CascadeType.ALL})
     private User user;
@@ -27,12 +27,12 @@ public class Session {
         this.projectName = projectName;
     }
 
-    public UUID getSessionUUID() {
-        return sessionUUID;
+    public String getSessionID() {
+        return sessionID;
     }
 
-    public void setSessionUUID(UUID sessionID) {
-        this.sessionUUID = sessionID;
+    public void setSessionID(String sessionID) {
+        this.sessionID = sessionID;
     }
 
     public User getUser() {

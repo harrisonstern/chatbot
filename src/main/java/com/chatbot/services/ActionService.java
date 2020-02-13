@@ -2,6 +2,7 @@ package com.chatbot.services;
 
 import com.chatbot.model.Session;
 import com.chatbot.model.User;
+import com.fasterxml.jackson.core.JsonFactory;
 import com.google.api.client.json.JsonGenerator;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.dialogflow.v2.model.GoogleCloudDialogflowV2Context;
@@ -42,61 +43,37 @@ public class ActionService {
 
         List<GoogleCloudDialogflowV2Context> contexts = request.getQueryResult().getOutputContexts();
 
-        // Parse out the UUID from the getSession string
-        String UUIDString = request.getSession().split("/")[4];
-        UUID sessionUUID = UUID.fromString(UUIDString);
+        // Parse out the session id from the getSession string
+        String sessionString = request.getSession();
+        String idString = request.getSession().split("/")[4];
 
         Session session;
 
         try {
-            session = sessionService.getSession(sessionUUID);
-            logger.info("processing request from old session id = {}", sessionUUID);
+            session = sessionService.getSession(idString);
 
         } catch (NoSuchElementException e) {
             session = new Session();
-            session.setSessionUUID(sessionUUID);
+            session.setSessionID(idString);
             User user = new User();
             session.setUser(user);
             user.setSession(session);
             sessionService.addSession(session);
-
-            logger.info("processing request from new session id = {}", sessionUUID);
         }
 
-        String responseText = "";
-        switch (request.getQueryResult().getIntent().getDisplayName()) {
-            case "checkout":
-
-                logger.info("updating user information if provided");
-
-                Map<String, Object> parameters = request.getQueryResult().getParameters();
-
-                // update the user info from the parameters
-                addUserInformationFromParameters(session, parameters);
-
-//                // Check if all of the slots have already been filled:
-//                if (request.getQueryResult().getAllRequiredParamsPresent() != null) {
-//
-//                    logger.info("all the required parameters were provided. returning default response");
-//
-//                    // Return the default fullfillment text defined in the intent
-//                    responseText = request.getQueryResult().getFulfillmentText();
-//
-//                    // Otherwise generate the response text based on missing parameters:
-//                } else {
-//
-//                    logger.info("Missing some of the required parameters. Modifying the default response.");
-//
-//                    responseText = generateResponseForMissingParameterAndModifyOutputContext(session, parameters, contexts);
-//
-//                }
-
-        }
-
-        logger.info("request = {}", request);
+        // Create the response
         GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
-        //response.setFulfillmentText(responseText);
-        response.setOutputContexts(contexts);
+
+        // Switch for each intent to add additional functionality:
+        switch (request.getQueryResult().getIntent().getDisplayName()) {
+            case "service.request.roomService":
+
+                String[] suggestions = {"New Towels", "Clean Room", "Lost Key"};
+
+                String fulfillmentText = request.getQueryResult().getFulfillmentText();
+                fulfillmentText += createSuggestionsJSON(suggestions);
+                response.setFulfillmentText(fulfillmentText);
+        }
 
         StringWriter stringWriter = new StringWriter();
         JsonGenerator jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
@@ -105,29 +82,50 @@ public class ActionService {
         return stringWriter.toString();
     }
 
-    private void addUserInformationFromParameters(Session session, Map<String, Object> parameters) {
-        for (Map.Entry<String, Object> entry : parameters.entrySet()) {
-            switch (entry.getKey()) {
-                case "lastName":
-                    if (((String) entry.getValue()).trim().length() > 0) {
-                        session.getUser().setName((String) entry.getValue());
-                    }
+    private String createSuggestionsJSON(String[] suggestions) throws IOException {
 
-                    break;
-                case "roomNumber":
-                    System.out.println("Room Number: " + (String) entry.getValue());
-                    session.getUser().setRoomNumber(Integer.parseInt((String) entry.getValue()));
-                    break;
-                case "reservationNumber":
-                    if ((entry.getValue() + "").trim().length() > 0) {
-                        session.getUser().setReservationNumber(entry.getValue() + "");
-                    }
-                    break;
-            }
-        }
+        JsonFactory factory = new JsonFactory();
+        StringWriter stringWriter = new StringWriter();
+        com.fasterxml.jackson.core.JsonGenerator generator = factory.createGenerator(stringWriter);
 
-        sessionService.saveSession(session);
+        generator.writeStartObject();
+        generator.writeFieldName("suggestions");
+        generator.writeStartArray();
+
+        for (String suggestion : suggestions)
+            generator.writeString(suggestion);
+
+        generator.writeEndArray();
+        generator.writeEndObject();
+        generator.close();
+
+        return stringWriter.toString();
     }
+}
+
+//    private void addUserInformationFromParameters(Session session, Map<String, Object> parameters) {
+//        for (Map.Entry<String, Object> entry : parameters.entrySet()) {
+//            switch (entry.getKey()) {
+//                case "lastName":
+//                    if (((String) entry.getValue()).trim().length() > 0) {
+//                        session.getUser().setName((String) entry.getValue());
+//                    }
+//
+//                    break;
+//                case "roomNumber":
+//                    System.out.println("Room Number: " + (String) entry.getValue());
+//                    session.getUser().setRoomNumber(Integer.parseInt((String) entry.getValue()));
+//                    break;
+//                case "reservationNumber":
+//                    if ((entry.getValue() + "").trim().length() > 0) {
+//                        session.getUser().setReservationNumber(entry.getValue() + "");
+//                    }
+//                    break;
+//            }
+//        }
+//
+//        sessionService.saveSession(session);
+//    }
 //    private String generateResponseForMissingParameterAndModifyOutputContext(Session session, Map<String, Object> parameters, List<GoogleCloudDialogflowV2Context> contexts) {
 //        boolean foundReservationNumber = false;
 //        boolean foundLastName = false;
@@ -203,9 +201,34 @@ public class ActionService {
 //        });
 //    }
 
-    private String getQuote(String typeOfQuote) {
-        String responseText;
-        responseText = "This is a great quote from category: " + typeOfQuote;
-        return responseText;
-    }
-}
+
+//CODE FOR ADDING USERS
+
+//    Map<String, Object> parameters = request.getQueryResult().getParameters();
+//
+//                // update the user info from the parameters
+//                addUserInformationFromParameters(session, parameters);
+//                logger.info("request = {}", request);
+//
+//
+//
+//
+//                // response.setOutputContexts(contexts);
+//
+//
+////                // Check if all of the slots have already been filled:
+////                if (request.getQueryResult().getAllRequiredParamsPresent() != null) {
+////
+////                    logger.info("all the required parameters were provided. returning default response");
+////
+////                    // Return the default fullfillment text defined in the intent
+////                    responseText = request.getQueryResult().getFulfillmentText();
+////
+////                    // Otherwise generate the response text based on missing parameters:
+////                } else {
+////
+////                    logger.info("Missing some of the required parameters. Modifying the default response.");
+////
+////                    responseText = generateResponseForMissingParameterAndModifyOutputContext(session, parameters, contexts);
+////
+////                }

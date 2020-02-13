@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface SessionRepository extends CrudRepository<Session, UUID> {
 
-    Optional<Session> findBySessionUUID(UUID sessionUUID);
+    Optional<Session> findBySessionID(String sessionID);
 }
