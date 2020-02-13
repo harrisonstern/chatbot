@@ -1,13 +1,22 @@
 package com.chatbot.model;
 
-import javax.persistence.Entity;
+
+
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-public class Session extends BaseEntity {
+public class Session {
 
     private String projectName;
-    private UUID sessionID;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    private UUID sessionUUID;
+
+    @OneToOne(cascade = {CascadeType.ALL})
     private User user;
 
     public String getProjectName() {
@@ -18,12 +27,12 @@ public class Session extends BaseEntity {
         this.projectName = projectName;
     }
 
-    public UUID getSessionID() {
-        return sessionID;
+    public UUID getSessionUUID() {
+        return sessionUUID;
     }
 
-    public void setSessionID(UUID sessionID) {
-        this.sessionID = sessionID;
+    public void setSessionUUID(UUID sessionID) {
+        this.sessionUUID = sessionID;
     }
 
     public User getUser() {
@@ -32,5 +41,13 @@ public class Session extends BaseEntity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
