@@ -8,6 +8,10 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.dialogflow.v2.model.GoogleCloudDialogflowV2Context;
 import com.google.api.services.dialogflow.v2.model.GoogleCloudDialogflowV2WebhookRequest;
 import com.google.api.services.dialogflow.v2.model.GoogleCloudDialogflowV2WebhookResponse;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +20,9 @@ import org.springframework.stereotype.Service;
 import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.UUID;
 
 @Service
 public class ActionService {
@@ -40,7 +42,7 @@ public class ActionService {
     @Autowired
     private JacksonFactory jacksonFactory;
 
-    public String process(String rawRequest) throws IOException {
+    public String process(String rawRequest) throws IOException, ParseException {
         GoogleCloudDialogflowV2WebhookRequest request = jacksonFactory.createJsonParser(rawRequest)
                 .parse(GoogleCloudDialogflowV2WebhookRequest.class);
 
@@ -65,7 +67,7 @@ public class ActionService {
             sessionService.addSession(session);
         }
 
-        GoogleCloudDialogflowV2WebhookResponse response = getResponse(session,request);
+        GoogleCloudDialogflowV2WebhookResponse response = getResponse(session, request);
 
         StringWriter stringWriter = new StringWriter();
         JsonGenerator jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
@@ -74,7 +76,7 @@ public class ActionService {
         return stringWriter.toString();
     }
 
-    private GoogleCloudDialogflowV2WebhookResponse getResponse(Session session, GoogleCloudDialogflowV2WebhookRequest request) throws IOException{
+    private GoogleCloudDialogflowV2WebhookResponse getResponse(Session session, GoogleCloudDialogflowV2WebhookRequest request) throws IOException, ParseException {
 
         // Create the response
         GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
@@ -113,27 +115,55 @@ public class ActionService {
             case "information.request.turnOnTV":
 
                 fulfillmentText = request.getQueryResult().getFulfillmentText();
-                fulfillmentText += createVideoJSON("https://www.youtube.com/watch?v=CpIqkLEGKsk");
+                fulfillmentText += createVideoJSON("https://www.youtube.com/embed/CpIqkLEGKsk");
                 response.setFulfillmentText(fulfillmentText);
                 break;
 
             case "Default Fallback Intent":
                 System.out.println(session.getFallbackCount());
                 int currentFallbackCount = session.getFallbackCount();
-                if (currentFallbackCount == 2){
+                if (currentFallbackCount == 2) {
                     fulfillmentText = "Sorry I am having trouble understanding. Please go to reception for additional help.";
                     response.setFulfillmentText(fulfillmentText);
-                }
-                else{
+                } else {
                     session.setFallbackCount(session.getFallbackCount() + 1);
                     sessionService.saveSession(session);
                 }
                 break;
 
             case "information.request.weather":
-               System.out.println(weatherService.getForcast());
-               break;
 
+                Map<String, Object> parameters = request.getQueryResult().getParameters();
+                JSONObject json;
+                JSONParser parser = new JSONParser();
+                fulfillmentText = "";
+
+                if (parameters.get("city")!= null)
+
+                    try {
+                        json = (JSONObject) parser.parse(weatherService.getForcast((String) parameters.get("city")));
+                    }
+                catch (ParseException e){
+                    fulfillmentText += "Sorry I can't get the weather for that city.";
+                    response.setFulfillmentText(fulfillmentText);
+                    break;
+                }
+
+                else {
+                    fulfillmentText += "Sorry I can't get the weather for that city. How about the weather in Malmö. ";
+                    json = (JSONObject) parser.parse(weatherService.getForcast("Malmo"));
+
+                }
+                JSONObject description = (JSONObject)(((JSONArray)json.get("weather")).get(0));
+
+                fulfillmentText += "The forecast indicates " + description.get("description") + ".";
+
+                int temp = (int)((double) ((JSONObject)json.get("main")).get("temp"));
+                int feelsTemp = (int)((double) ((JSONObject)json.get("main")).get("feels_like"));
+                fulfillmentText += "The temperature is " + temp + "°C, but it feels like " + feelsTemp + "°C.";
+
+                response.setFulfillmentText(fulfillmentText);
+                break;
 
         }
 
@@ -160,13 +190,13 @@ public class ActionService {
         return stringWriter.toString();
     }
 
-    private String createVideoJSON(String url) throws IOException{
+    private String createVideoJSON(String url) throws IOException {
         JsonFactory factory = new JsonFactory();
         StringWriter stringWriter = new StringWriter();
         com.fasterxml.jackson.core.JsonGenerator generator = factory.createGenerator(stringWriter);
 
         generator.writeStartObject();
-        generator.writeStringField("video",url);
+        generator.writeStringField("video", url);
         generator.writeEndObject();
         generator.close();
 
@@ -185,8 +215,8 @@ public class ActionService {
 
         for (Point2D coord : coords) {
             generator.writeStartObject();
-            generator.writeNumberField("lat",coord.getX());
-            generator.writeNumberField("lng",coord.getY());
+            generator.writeNumberField("lat", coord.getX());
+            generator.writeNumberField("lng", coord.getY());
             generator.writeEndObject();
         }
 
